@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.Console;
 import java.sql.Connection;
@@ -77,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
         }
         catch(Exception e)
         {
+            Toast error = Toast.makeText(this, "Well SHit", Toast.LENGTH_LONG);
+            error.show();
             Log.w("Error connection", "" + e.getMessage());
         }
     }
