@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import java.io.Console;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -18,15 +20,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 
-
+import org.w3c.dom.Text;
 
 
 public class MainActivity extends AppCompatActivity {
 
     TextView searchb;
     ListView tacts;
+    TextView test;
 
     public ArrayList<Person> contacts;
+
+    public Person desired;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +49,9 @@ public class MainActivity extends AppCompatActivity {
 
         searchb = (TextView)findViewById(R.id.searchBar);
         tacts = (ListView)findViewById(R.id.conList);
+        test = (TextView)findViewById(R.id.test);
         tacts.clearChoices();
-        //TODO populate tacts from server
-        
-
-
-
+        getList();
     }
 
     public void getList()
@@ -61,8 +63,16 @@ public class MainActivity extends AppCompatActivity {
 
             conn = DriverManager.getConnection("whatshisname.databases.windows.net");
             Statement state1 = conn.createStatement();
-            ResultSet re = state1.executeQuery("select * from contacts");
+            ResultSet re = state1.executeQuery("SELECT * FROM contacts WHERE uname EQUALS habeebh");
 
+            String test1 = re.getString(2);
+
+            test.setText(test1);
+
+
+
+
+            conn.close();
             
         }
         catch(Exception e)
