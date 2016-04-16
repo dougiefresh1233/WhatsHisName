@@ -17,7 +17,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import net.sourceforge.jtds.jdbc.*;
 
 
 
