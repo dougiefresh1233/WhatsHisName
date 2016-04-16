@@ -9,9 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-public class AddActivity extends AppCompatActivity {
+public class EditActivity extends AppCompatActivity {
 
     private String name;
     private String description;
@@ -32,7 +31,7 @@ public class AddActivity extends AppCompatActivity {
             public void onClick(View v) {
                 name = editName.getText().toString();
                 description = editDescription.getText().toString();
-                //Send stuff to server and *add new* entry
+                //Send stuff to server and *change* other entry
                 //go back to main activity
                 goBack();
             }
@@ -45,5 +44,4 @@ public class AddActivity extends AppCompatActivity {
     public void goBack(){
         NavUtils.navigateUpFromSameTask(this);
     }
-
 }
