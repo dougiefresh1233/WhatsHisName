@@ -34,7 +34,9 @@
         android2:id="@+id/conList"
         android2:layout_below="@+id/searchBar"
         android2:layout_centerHorizontal="true"
-        android2:smoothScrollbar="true" />
+        android2:smoothScrollbar="true"
+        android2:choiceMode="singleChoice" />
+
     <android.support.design.widget.FloatingActionButton
         android2:id="@+id/fab"
         android2:layout_width="wrap_content"
@@ -43,6 +45,7 @@
         android2:src="@android:drawable/ic_input_add"
         android2:layout_alignParentTop="true"
         android2:layout_alignParentRight="true"
-        android2:layout_alignParentEnd="true" />
+        android2:layout_alignParentEnd="true"
+        android2:tint="#ffffff" />
 
 </RelativeLayout>

@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         searchb = (TextView)findViewById(R.id.searchBar);
         tacts = (ListView)findViewById(R.id.conList);
         tacts.clearChoices();
+        //TODO populate tacts from server
+        
 
     }
 
