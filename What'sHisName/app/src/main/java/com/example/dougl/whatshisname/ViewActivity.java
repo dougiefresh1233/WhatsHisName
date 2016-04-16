@@ -27,7 +27,9 @@ public class ViewActivity extends AppCompatActivity {
             }
         });
 
-        RelativeLayout name = (RelativeLayout) findViewById(R.id.name);
+        TextView name=(TextView) findViewById(R.id.name);
+        name.setText("Bitch ass niggas be trippin");
+
 
     }
 

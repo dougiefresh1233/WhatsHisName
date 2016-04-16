@@ -10,10 +10,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.dougl.whatshisname.ViewActivity"
-    tools:showIn="@layout/activity_view"
-    android:id="@+id/data">
+    tools:showIn="@layout/activity_view">
 
     <TextView
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -24,35 +24,37 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
+        android:id="@+id/number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Phone Number"
         android:id="@+id/textView2"
+        android:layout_marginTop="29dp"
         android:layout_below="@+id/textView"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView"
-        android:layout_marginTop="29dp" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
+        android:id="@+id/address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Something else"
         android:id="@+id/textView3"
+        android:layout_marginTop="42dp"
         android:layout_below="@+id/textView2"
         android:layout_alignRight="@+id/textView2"
         android:layout_alignEnd="@+id/textView2"
-        android:layout_marginTop="38dp" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
+        android:id="@+id/other"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="The fuck am I doing?"
         android:id="@+id/textView4"
+        android:layout_marginTop="44dp"
         android:layout_below="@+id/textView3"
-        android:layout_alignRight="@+id/textView3"
-        android:layout_alignEnd="@+id/textView3"
-        android:layout_marginTop="47dp" />
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
