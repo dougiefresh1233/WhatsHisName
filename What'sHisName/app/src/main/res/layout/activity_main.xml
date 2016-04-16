@@ -1,34 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="com.example.dougl.whatshisname.MainActivity">
+<RelativeLayout xmlns:android2="http://schemas.android.com/apk/res/android"
+    android2:layout_width="wrap_content"
+    android2:layout_height="wrap_content">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+    <EditText
+        android2:layout_width="wrap_content"
+        android2:layout_height="wrap_content"
+        android2:id="@+id/searchBar"
+        android2:textSize="30dp"
+        android2:textStyle="normal"
+        android2:layout_below="@+id/Title"
+        android2:layout_alignLeft="@+id/Title"
+        android2:layout_alignStart="@+id/Title"
+        android2:layout_alignRight="@+id/Title"
+        android2:layout_alignEnd="@+id/Title" />
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    <TextView
+        android2:layout_width="wrap_content"
+        android2:layout_height="wrap_content"
+        android2:text="Who Dat Is?"
+        android2:id="@+id/Title"
+        android2:textSize="50dp"
+        android2:layout_marginTop="65dp"
+        android2:layout_alignParentTop="true"
+        android2:layout_alignParentLeft="true"
+        android2:layout_alignParentStart="true"
+        android2:layout_marginLeft="65dp"
+        android2:layout_marginStart="65dp" />
 
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_main" />
-
+    <ListView
+        android2:layout_width="wrap_content"
+        android2:layout_height="wrap_content"
+        android2:id="@+id/conList"
+        android2:layout_below="@+id/searchBar"
+        android2:layout_centerHorizontal="true"
+        android2:smoothScrollbar="true" />
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+        android2:id="@+id/fab"
+        android2:layout_width="wrap_content"
+        android2:layout_height="wrap_content"
+        android2:layout_gravity="bottom|end"
+        android2:src="@android:drawable/ic_input_add"
+        android2:layout_alignParentTop="true"
+        android2:layout_alignParentRight="true"
+        android2:layout_alignParentEnd="true" />
 
-</android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>
