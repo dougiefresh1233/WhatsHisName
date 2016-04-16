@@ -32,8 +32,20 @@
         android2:layout_width="wrap_content"
         android2:layout_height="wrap_content"
         android2:id="@+id/conList"
+        android2:smoothScrollbar="true"
+        android2:layout_below="@+id/searchBar"
+        android2:layout_alignParentLeft="true"
+        android2:layout_alignParentStart="true"
+        android2:layout_marginTop="234dp" />
+
+    <TextView
+        android2:layout_width="wrap_content"
+        android2:layout_height="wrap_content"
+        android2:text="New Text"
+        android2:id="@+id/test"
         android2:layout_below="@+id/searchBar"
         android2:layout_centerHorizontal="true"
-        android2:smoothScrollbar="true" />
+        android2:textStyle="normal"
+        android2:textSize="30sp" />
 
 </RelativeLayout>
