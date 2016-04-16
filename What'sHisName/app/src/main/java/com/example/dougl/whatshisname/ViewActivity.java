@@ -6,6 +6,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class ViewActivity extends AppCompatActivity {
 
@@ -24,6 +26,11 @@ public class ViewActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        TextView name=(TextView) findViewById(R.id.nameView);
+        name.setText("Bitch ass niggas be trippin");
+
+
     }
 
 }
