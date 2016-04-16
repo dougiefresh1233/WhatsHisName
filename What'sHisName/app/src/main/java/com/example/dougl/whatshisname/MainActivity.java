@@ -5,18 +5,29 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import net.sourceforge.jtds.jdbc.*;
+
+
 
 
 public class MainActivity extends AppCompatActivity {
 
     TextView searchb;
     ListView tacts;
+
+    public ArrayList<Person> contacts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +49,27 @@ public class MainActivity extends AppCompatActivity {
         //TODO populate tacts from server
         
 
+
+
+    }
+
+    public void getList()
+    {
+        Connection conn = null;
+        try{
+            String driver = "net.sourceforge.jtds.jdbc.Driver";
+            Class.forName(driver).newInstance();
+
+            conn = DriverManager.getConnection("whatshisname.databases.windows.net");
+            Statement state1 = conn.createStatement();
+            ResultSet re = state1.executeQuery("select * from contacts");
+
+            
+        }
+        catch(Exception e)
+        {
+            Log.w("Error connection", "" + e.getMessage());
+        }
     }
 
     @Override
