@@ -1,5 +1,6 @@
 package com.example.dougl.whatshisname;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -22,15 +23,19 @@ public class ViewActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                goToEdit();
             }
         });
 
         TextView name=(TextView) findViewById(R.id.nameView);
-        name.setText("Bitch ass niggas be trippin");
+        name.setText("Chris Jacobs");
 
 
+    }
+
+    private void goToEdit(){
+        Intent editScreen = new Intent(this, EditActivity.class);
+        startActivity(editScreen);
     }
 
 }
