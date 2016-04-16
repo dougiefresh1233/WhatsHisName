@@ -29,7 +29,15 @@ public class ViewActivity extends AppCompatActivity {
         });
 
         TextView name=(TextView) findViewById(R.id.name);
-        name.setText("Bitch ass niggas be trippin");
+        TextView location=(TextView) findViewById(R.id.location);
+        TextView description=(TextView) findViewById(R.id.description);
+
+        Person toshow=MainActivity.desired;
+
+        name.setText(toshow.firstname+" "+toshow.lastname);
+        location.setText(toshow.location);
+        description.setText(toshow.descript);
+
 
 
     }

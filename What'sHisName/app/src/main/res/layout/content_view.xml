@@ -27,9 +27,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Phone Number"
-        android:id="@+id/number"
-        android:layout_marginTop="29dp"
+        android:text="Where you met"
+        android:id="@+id/location"
+        android:layout_marginTop="42dp"
         android:layout_below="@+id/name"
         android:layout_centerHorizontal="true" />
 
@@ -37,22 +37,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Something else"
-        android:id="@+id/textView3"
+        android:text="Description"
+        android:id="@+id/description"
         android:layout_marginTop="42dp"
-        android:layout_below="@+id/number"
-        android:layout_alignRight="@+id/number"
-        android:layout_alignEnd="@+id/number"
+        android:layout_below="@+id/location"
         android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="The fuck am I doing?"
-        android:id="@+id/textView4"
-        android:layout_marginTop="44dp"
-        android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
