@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.Console;
+import java.net.URL;
 import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,7 +28,14 @@ import java.util.Arrays;
 import java.util.List;
 
 import net.sourceforge.jtds.jdbc.*;
+
+import org.json.JSONObject;
 import org.w3c.dom.Text;
+
+import java.net.HttpURLConnection;
+import java.net.URLConnection;
+import java.util.*;
+import java.io.*;
 
 
 
@@ -97,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getList() {
-        //Connection conn = null;
+
 
     }
 
@@ -136,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         viewAct.putExtra("description",desired.description);
         startActivity(viewAct);
     }
-
+/*
     class GetSQLData extends AsyncTask<Void, Void, String> {
         @Override
         protected void onPreExecute() {
@@ -145,24 +153,16 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Void... params) {
-            try {
-                //String driver = "net.sourceforge.jtds.jdbc.Driver";
-                Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
-                Connection conn = DriverManager.getConnection("jdbc:sqlserver://whatshisname.database.windows.net;databaseName=whats-his-name;encrypt=false;user=habeebh;password=gig3m@ggie$");
-                Statement state1 = conn.createStatement();
-                ResultSet re = state1.executeQuery("select * from contacts");
+            InputStream is = null;
+            String result = "";
+            JSONObject jArray = null;
+            try{
+                //HttpURLConnection = httpurl = (HttpURLConnection) URL.openConnection("who-dat-db.cbyst98yimsv.us-west-2.rds.amazonaws.com:3306");
 
-                String test1 = re.getString(2);
-                conn.close();
 
-                return test1;
-            /**/
-                //return "YAAY"  ;
             } catch (Exception e) {
                 Log.e("Error connection", "" + Arrays.toString(e.getStackTrace()));
             }
-
-            return "Not working";
         }
 
 
@@ -173,5 +173,5 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
-    }
+    }*/
 }
