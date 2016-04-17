@@ -10,17 +10,22 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.Console;
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
 import net.sourceforge.jtds.jdbc.*;
 import org.w3c.dom.Text;
 
@@ -28,9 +33,9 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView searchb;
+    EditText searchBar;
     ListView tacts;
-    TextView test;
+    Button searchButton;
 
     public ArrayList<Person> contacts;
 
@@ -50,13 +55,45 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        searchb = (TextView) findViewById(R.id.searchBar);
+        searchBar = (EditText) findViewById(R.id.searchBar);
         tacts = (ListView) findViewById(R.id.conList);
-        test = (TextView) findViewById(R.id.test);
+        searchButton = (Button) findViewById(R.id.searchButton);
+        searchButton.setOnClickListener(new Button.OnClickListener(){public void onClick(View view){conductSearch();}});
         tacts.clearChoices();
 //        getList();
         //TODO Generate list from server
        // new GetSQLData().execute();
+    }
+
+    private void conductSearch() {
+        if(contacts.size()==0){
+            Toast.makeText(getApplication().getBaseContext(),"You have no contacts!",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        String query= (String) searchButton.getText();
+        List<String> keywords=Arrays.asList(query.split(" "));
+        int maxscore=-1;
+        Person bestmatch=contacts.get(0);
+        int score;
+        Person subject;
+        String word;
+        for(int contact=0;contact<contacts.size();contact++){
+            score=0;
+            subject=contacts.get(contact);
+            for(int keyword=0;keyword<keywords.size();keyword++){
+                word=keywords.get(keyword);
+                if(subject.firstname.contains(word)) score++;
+                if(subject.lastname.contains(word)) score++;
+                if(subject.loca.contains(word)) score++;
+                if(subject.description.contains(word)) score++;
+            }
+            if(score>maxscore){
+                maxscore=score;
+                bestmatch=subject;
+            }
+        }
+        desired=bestmatch;
+        goToView();
     }
 
     public void getList() {
@@ -128,9 +165,10 @@ public class MainActivity extends AppCompatActivity {
             return "Not working";
         }
 
+
         @Override
         protected void onPostExecute(String s) {
-            test.setText(s);
+            //test.setText(s);
             Toast.makeText(getApplicationContext(), "Ending", Toast.LENGTH_SHORT).show();
 
 
