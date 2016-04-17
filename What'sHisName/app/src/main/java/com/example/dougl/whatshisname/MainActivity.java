@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
         test = (TextView) findViewById(R.id.test);
         tacts.clearChoices();
 //        getList();
-
-        new GetSQLData().execute();
+        //TODO Generate list from server
+       // new GetSQLData().execute();
     }
 
     public void getList() {
