@@ -1,5 +1,6 @@
 package com.example.dougl.whatshisname;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -26,13 +27,13 @@ public class EditActivity extends AppCompatActivity {
         editName = (EditText) findViewById(R.id.editName);
         editDescription = (EditText) findViewById(R.id.editDescription);
         Button saveButton = (Button) findViewById(R.id.saveButton);
+        //parseData();
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 name = editName.getText().toString();
                 description = editDescription.getText().toString();
-                //Send stuff to server and *change* other entry
-                //go back to main activity
+                //TODO Send stuff to server and *change* other entry
                 goBack();
             }
         });
@@ -41,7 +42,14 @@ public class EditActivity extends AppCompatActivity {
     ///<summary>
     ///Goes back to Main Activity
     ///</summary>
-    public void goBack(){
+    private void goBack(){
         NavUtils.navigateUpFromSameTask(this);
+    }
+
+    ///<summary>
+    ///Unpacks passed in intent and updates respective text fields
+    ///</summary>
+    private void parseData(){
+        Intent input = getIntent();
     }
 }

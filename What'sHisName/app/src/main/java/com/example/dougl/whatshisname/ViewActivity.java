@@ -23,11 +23,9 @@ public class ViewActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openeditor = new Intent(ViewActivity.this,EditActivity.class);
-                startActivity(openeditor);
+                goToEdit();
             }
         });
-
         TextView name=(TextView) findViewById(R.id.name);
         TextView location=(TextView) findViewById(R.id.location);
         TextView description=(TextView) findViewById(R.id.description);
@@ -37,9 +35,11 @@ public class ViewActivity extends AppCompatActivity {
         name.setText(toshow.firstname+" "+toshow.lastname);
         location.setText(toshow.location);
         description.setText(toshow.descript);
+    }
 
-
-
+    private void goToEdit(){
+        Intent editScreen = new Intent(this, EditActivity.class);
+        startActivity(editScreen);
     }
 
 }

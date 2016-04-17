@@ -32,8 +32,7 @@ public class AddActivity extends AppCompatActivity {
             public void onClick(View v) {
                 name = editName.getText().toString();
                 description = editDescription.getText().toString();
-                //Send stuff to server and *add new* entry
-                //go back to main activity
+                //TODO Send stuff to server and *add new* entry
                 goBack();
             }
         });
