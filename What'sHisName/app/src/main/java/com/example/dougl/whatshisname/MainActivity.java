@@ -1,6 +1,7 @@
 package com.example.dougl.whatshisname;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -19,9 +20,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-
+import java.util.Arrays;
+import net.sourceforge.jtds.jdbc.*;
 import org.w3c.dom.Text;
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -48,40 +50,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        searchb = (TextView)findViewById(R.id.searchBar);
-        tacts = (ListView)findViewById(R.id.conList);
-        test = (TextView)findViewById(R.id.test);
+        searchb = (TextView) findViewById(R.id.searchBar);
+        tacts = (ListView) findViewById(R.id.conList);
+        test = (TextView) findViewById(R.id.test);
         tacts.clearChoices();
-        getList();
+//        getList();
+
+        new GetSQLData().execute();
     }
 
-    public void getList()
-    {
-        Connection conn = null;
-        try{
-            String driver = "net.sourceforge.jtds.jdbc.Driver";
-            Class.forName(driver).newInstance();
+    public void getList() {
+        //Connection conn = null;
 
-            conn = DriverManager.getConnection("whatshisname.databases.windows.net");
-            Statement state1 = conn.createStatement();
-            ResultSet re = state1.executeQuery("SELECT * FROM contacts WHERE uname EQUALS habeebh");
-
-            String test1 = re.getString(2);
-
-            test.setText(test1);
-
-
-
-
-            conn.close();
-
-        }
-        catch(Exception e)
-        {
-            Toast error = Toast.makeText(this, "Well SHit", Toast.LENGTH_LONG);
-            error.show();
-            Log.w("Error connection", "" + e.getMessage());
-        }
     }
 
     @Override
@@ -106,12 +86,50 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void goToAdd(){
+    private void goToAdd() {
         Intent addAct = new Intent(this, AddActivity.class);
         startActivity(addAct);
     }
-    private void goToView(){
+
+    private void goToView() {
         Intent viewAct = new Intent(this, ViewActivity.class);
         startActivity(viewAct);
+    }
+
+    class GetSQLData extends AsyncTask<Void, Void, String> {
+        @Override
+        protected void onPreExecute() {
+            Toast.makeText(getApplicationContext(), "Starting", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+            try {
+                //String driver = "net.sourceforge.jtds.jdbc.Driver";
+                Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
+                Connection conn = DriverManager.getConnection("jdbc:sqlserver://whatshisname.database.windows.net;databaseName=whats-his-name;encrypt=false;user=habeebh;password=gig3m@ggie$");
+                Statement state1 = conn.createStatement();
+                ResultSet re = state1.executeQuery("select * from contacts");
+
+                String test1 = re.getString(2);
+                conn.close();
+
+                return test1;
+            /**/
+                //return "YAAY"  ;
+            } catch (Exception e) {
+                Log.e("Error connection", "" + Arrays.toString(e.getStackTrace()));
+            }
+
+            return "Not working";
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            test.setText(s);
+            Toast.makeText(getApplicationContext(), "Ending", Toast.LENGTH_SHORT).show();
+
+
+        }
     }
 }
