@@ -26,11 +26,15 @@ public class ViewActivity extends AppCompatActivity {
                 goToEdit();
             }
         });
+        TextView name=(TextView) findViewById(R.id.name);
+        TextView location=(TextView) findViewById(R.id.location);
+        TextView description=(TextView) findViewById(R.id.description);
 
-        TextView name=(TextView) findViewById(R.id.nameView);
-        name.setText("Chris Jacobs");
+        Person toshow=MainActivity.desired;
 
-
+        name.setText(toshow.firstname+" "+toshow.lastname);
+        location.setText(toshow.location);
+        description.setText(toshow.descript);
     }
 
     private void goToEdit(){
