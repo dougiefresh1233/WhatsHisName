@@ -47,8 +47,12 @@ public class ViewActivity extends AppCompatActivity {
     }
 
     private void goToEdit(){
-        Intent editScreen = new Intent(this, EditActivity.class);
-        startActivity(editScreen);
+        Intent editAct = new Intent(this, EditActivity.class);
+        editAct.putExtra("firstname", getField("firstname"));
+        editAct.putExtra("lastname",getField("lastname"));
+        editAct.putExtra("location",getField("loca"));
+        editAct.putExtra("description",getField("description"));
+        startActivity(editAct);
     }
 
     void populateData(List<String> fields){

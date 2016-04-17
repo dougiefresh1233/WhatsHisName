@@ -13,9 +13,13 @@ import android.widget.EditText;
 
 public class EditActivity extends AppCompatActivity {
 
-    private String name;
+    private String firstName;
     private String description;
-    private EditText editName;
+    private String location;
+    private String lastName;
+    private EditText editFirstName;
+    private EditText editLastName;
+    private EditText editLocation;
     private EditText editDescription;
 
     @Override
@@ -24,15 +28,23 @@ public class EditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        editName = (EditText) findViewById(R.id.editName);
+        editFirstName = (EditText) findViewById(R.id.editFirstName);
+        editFirstName.setText(getIntent().getStringExtra("firstname"));
         editDescription = (EditText) findViewById(R.id.editDescription);
+        editDescription.setText(getIntent().getStringExtra("description"));
+        editLastName = (EditText) findViewById(R.id.editLastName);
+        editLastName.setText(getIntent().getStringExtra("lastname"));
+        editLocation = (EditText) findViewById(R.id.editLocation);
+        editLocation.setText(getIntent().getStringExtra("location"));
         Button saveButton = (Button) findViewById(R.id.saveButton);
         //parseData();
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name = editName.getText().toString();
+                firstName = editFirstName.getText().toString();
                 description = editDescription.getText().toString();
+                lastName = editLastName.getText().toString();
+                location = editLocation.getText().toString();
                 //TODO Send stuff to server and *change* other entry
                 goBack();
             }
