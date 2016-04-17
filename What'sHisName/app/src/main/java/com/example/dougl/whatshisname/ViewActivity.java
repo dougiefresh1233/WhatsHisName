@@ -9,8 +9,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ViewActivity extends AppCompatActivity {
+
+    public List<String> fields;
+    public ArrayList<String> data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +38,39 @@ public class ViewActivity extends AppCompatActivity {
         TextView location=(TextView) findViewById(R.id.location);
         TextView description=(TextView) findViewById(R.id.description);
 
-        Person toshow=MainActivity.desired;
+        List<String> fields= Arrays.asList("firstname","lastname","location","description");
+        populateData(fields);
 
-        name.setText(toshow.firstname+" "+toshow.lastname);
-        location.setText(toshow.location);
-        description.setText(toshow.descript);
+        name.setText(getField("firstname")+" "+getField("lastname"));
+        location.setText(getField("lastname"));
+        description.setText(getField("description"));
     }
 
     private void goToEdit(){
         Intent editScreen = new Intent(this, EditActivity.class);
         startActivity(editScreen);
+    }
+
+    void populateData(List<String> fields){
+        Bundle extras=getIntent().getExtras();
+        for(int i=0;i<fields.size();i++){
+            if(extras==null){
+                data.add(fields.get(i));
+            } else {
+                data.add(extras.getString(fields.get(i)));
+            }
+        }
+
+    }
+
+    String getField(String fieldname){
+        if(fields.contains(fieldname)) {
+            return data.get(fields.indexOf(fieldname));
+        } else {
+            Toast.makeText(getApplication().getBaseContext(),"an invalid field was fetched",
+                    Toast.LENGTH_LONG).show();
+            return null;
+        }
     }
 
 }

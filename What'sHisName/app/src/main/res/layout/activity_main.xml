@@ -36,19 +36,11 @@
         android2:layout_below="@+id/searchBar"
         android2:layout_alignParentLeft="true"
         android2:layout_alignParentStart="true"
-        android2:layout_marginTop="234dp" />
+        android2:layout_marginTop="234dp" /><![CDATA[
 
-    <TextView
-        android2:layout_width="wrap_content"
-        android2:layout_height="wrap_content"
-        android2:text="New Text"
-        android2:id="@+id/test"
-        android2:layout_below="@+id/searchBar"
-        android2:layout_centerHorizontal="true"
-        android2:smoothScrollbar="true"
-        android2:choiceMode="singleChoice"
-        android2:textStyle="normal"
-        android2:textSize="30sp" />/>
+    />
+
+    ]]>
 
     <android.support.design.widget.FloatingActionButton
         android2:id="@+id/fab"
@@ -60,5 +52,13 @@
         android2:layout_alignParentRight="true"
         android2:layout_alignParentEnd="true"
         android2:tint="#ffffff" />
+
+    <Button
+        android2:layout_width="wrap_content"
+        android2:layout_height="wrap_content"
+        android2:text="Go"
+        android2:id="@+id/searchButton"
+        android2:layout_centerVertical="true"
+        android2:layout_centerHorizontal="true" />
 
 </RelativeLayout>
