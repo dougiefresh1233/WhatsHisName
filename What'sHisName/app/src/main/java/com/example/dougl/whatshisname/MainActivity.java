@@ -93,6 +93,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void goToView() {
         Intent viewAct = new Intent(this, ViewActivity.class);
+        viewAct.putExtra("firstname",desired.firstname);
+        viewAct.putExtra("lastname",desired.lastname);
+        viewAct.putExtra("location",desired.loca);
+        viewAct.putExtra("description",desired.description);
         startActivity(viewAct);
     }
 
