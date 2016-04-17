@@ -14,23 +14,22 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.Console;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Arrays;
-import net.sourceforge.jtds.jdbc.*;
-import org.w3c.dom.Text;
+import com.sun.deploy.net.HttpResponse;
+import com.org.apche.http.*;
 
+import java.net.HttpURLConnection;
+import java.net.URLConnection;
+import java.util.*;
+import java.io.*;
+
+
+import sun.net.www.http.HttpClient;
 
 
 public class MainActivity extends AppCompatActivity {
 
     TextView searchb;
     ListView tacts;
-    TextView test;
 
     public ArrayList<Person> contacts;
 
@@ -60,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getList() {
-        //Connection conn = null;
+
 
     }
 
@@ -104,24 +103,16 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Void... params) {
-            try {
-                //String driver = "net.sourceforge.jtds.jdbc.Driver";
-                Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
-                Connection conn = DriverManager.getConnection("jdbc:sqlserver://whatshisname.database.windows.net;databaseName=whats-his-name;encrypt=false;user=habeebh;password=gig3m@ggie$");
-                Statement state1 = conn.createStatement();
-                ResultSet re = state1.executeQuery("select * from contacts");
+            InputStream is = null;
+            String result = "";
+            JSONObject jArray = null;
+            try{
+                HttpURLConnection = httpurl = (HttpURLConnection)URL.openConnection("who-dat-db.cbyst98yimsv.us-west-2.rds.amazonaws.com:3306");
 
-                String test1 = re.getString(2);
-                conn.close();
 
-                return test1;
-            /**/
-                //return "YAAY"  ;
             } catch (Exception e) {
                 Log.e("Error connection", "" + Arrays.toString(e.getStackTrace()));
             }
-
-            return "Not working";
         }
 
         @Override
