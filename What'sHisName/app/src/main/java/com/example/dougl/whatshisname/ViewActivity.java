@@ -12,10 +12,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ViewActivity extends AppCompatActivity {
 
-    public ArrayList<String> fields;
+    public List<String> fields;
     public ArrayList<String> data;
 
     @Override
@@ -36,7 +38,7 @@ public class ViewActivity extends AppCompatActivity {
         TextView location=(TextView) findViewById(R.id.location);
         TextView description=(TextView) findViewById(R.id.description);
 
-        ArrayList<String> fields=["firstname","lastname","location","description"];
+        List<String> fields= Arrays.asList("firstname","lastname","location","description");
         populateData(fields);
 
         name.setText(getField("firstname")+" "+getField("lastname"));
@@ -49,7 +51,7 @@ public class ViewActivity extends AppCompatActivity {
         startActivity(editScreen);
     }
 
-    void populateData(ArrayList<String> fields){
+    void populateData(List<String> fields){
         Bundle extras=getIntent().getExtras();
         for(int i=0;i<fields.size();i++){
             if(extras==null){
